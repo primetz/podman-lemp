@@ -3,25 +3,29 @@ version: '3.8'
 services:
   php:
     build:
-      context: ./php-8.0
+      context: php-8.0
+      dockerfile: Dockerfile
       args:
-        - USER_ID
-        - GROUP_ID
-    image: php-xdebug:8.0
+        USER_ID: ${USER_ID}
+        GROUP_ID: ${GROUP_ID}
+    image: php-xdebug
     container_name: php
     restart: unless-stopped
     volumes:
       - ./app:/var/www:Z
-    environment:
-      XDEBUG_CONFIG: "remote_host=127.0.0.1 remote_enable=1 remote_autostart=off  remote_port=9008"
-      PHP_IDE_CONFIG: "serverName=first"
 
   nginx:
-    image: docker.io/nginx:1.20.1
+    build:
+      context: nginx-1.20.1
+      dockerfile: Dockerfile
+      args:
+        USER_ID: ${USER_ID}
+        GROUP_ID: ${GROUP_ID}
+    image: nginx-dev
     container_name: nginx
     restart: unless-stopped
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./app:/var/www:Z
       - ./nginx-conf:/etc/nginx/conf.d:Z
