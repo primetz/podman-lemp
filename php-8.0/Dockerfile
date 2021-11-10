@@ -11,7 +11,7 @@ RUN apt-get update \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug
 
-ADD ./php.ini /usr/local/etc/php/php.ini
+ADD ./php.ini-development /usr/local/etc/php/php.ini
 ADD ./docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 RUN usermod -u ${USER_ID} www-data && \
