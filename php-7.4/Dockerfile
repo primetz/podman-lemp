@@ -1,4 +1,4 @@
-FROM docker.io/library/php:8.0-fpm
+FROM docker.io/library/php:7.4-fpm
 
 ARG USER_ID
 ARG GROUP_ID

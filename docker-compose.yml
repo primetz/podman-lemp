@@ -3,7 +3,7 @@ version: '3.8'
 services:
   php:
     build:
-      context: php-8.0
+      context: php-7.4
       dockerfile: Dockerfile
       args:
         USER_ID: ${USER_ID}
