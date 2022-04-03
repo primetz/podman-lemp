@@ -1,7 +1,1 @@
 FROM docker.io/library/mysql:latest
-
-ARG USER_ID
-ARG GROUP_ID
-
-RUN usermod -u ${USER_ID} mysql && \
-    groupmod -g ${GROUP_ID} mysql
