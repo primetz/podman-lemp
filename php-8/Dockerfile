@@ -18,5 +18,3 @@ ADD ./docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.
 
 RUN usermod -u ${USER_ID} www-data && \
     groupmod -g ${GROUP_ID} www-data
-
-USER "${USER_ID}:${GROUP_ID}"
