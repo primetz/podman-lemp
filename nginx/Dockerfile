@@ -1,4 +1,4 @@
-FROM docker.io/library/nginx:stable
+FROM nginx:stable
 
 ARG USER_ID
 ARG GROUP_ID
